@@ -100,7 +100,7 @@ export default {
 .content {
   display: flex;
   flex-direction: row;
-  padding-top: 3rem;
+  padding-top: 4rem;
   padding-left: 1rem;
   position: relative;
 
