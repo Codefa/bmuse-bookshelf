@@ -28,8 +28,6 @@
           :src="require('@/assets/slider_arrow.png')"
           style="-webkit-transform: scaleX(-1); transform: scaleX(-1)"
           alt="slider_left_arrow"
-          width="60"
-          height="60"
         />
       </div>
       <div
@@ -46,8 +44,6 @@
         <img
           :src="require('@/assets/slider_arrow.png')"
           alt="slider_right_arrow"
-          width="60"
-          height="60"
         />
       </div>
     </div>

@@ -52,15 +52,9 @@ export default {
     border-radius: 1rem;
   }
 
-  // &:active,
-  // &:focus {
-  //   border: 5px solid #fff;
-  // }
-
   &__img {
     display: block;
     width: 100%;
-    border-radius: calc(0.25rem - 1px);
     object-fit: cover;
   }
 

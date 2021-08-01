@@ -107,7 +107,7 @@ export default {
   display: flex;
   flex-direction: row;
   padding-top: 4rem;
-  padding-left: 1rem;
+  padding-left: 2rem;
   position: relative;
 
   &__close {
@@ -141,7 +141,7 @@ export default {
     }
 
     &--action {
-      margin: 1rem;
+      margin: 1rem 0;
       &--btn {
         color: #fff;
         background: #464646;
@@ -182,7 +182,6 @@ export default {
       line-height: 1.36;
       letter-spacing: 0.4px;
       color: hsla(0, 0%, 100%, 0.7);
-      padding: 0 20px 0 40px;
       word-break: break-word;
     }
   }

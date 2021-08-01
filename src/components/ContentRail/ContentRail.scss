@@ -86,6 +86,7 @@ $animation-curve: cubic-bezier(0.55, 0, 0.1, 1);
     flex-direction: row;
     will-change: transform;
     transition: transform 600ms $animation-curve;
+    padding: 20px 0;
   }
 
   &__actions {
@@ -109,7 +110,6 @@ $animation-curve: cubic-bezier(0.55, 0, 0.1, 1);
     align-items: center;
     position: relative;
     justify-content: center;
-    width: $btnSize;
     height: $btnSize;
     transition: opacity 500ms $animation-curve;
     z-index: 2;

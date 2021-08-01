@@ -73,6 +73,16 @@ img {
   justify-content: center;
 }
 
+@media screen and (min-width: 1920px) {
+  .section-showcase .container {
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .main-nav {
   padding: 0.5rem 2.5rem;
   display: flex;
