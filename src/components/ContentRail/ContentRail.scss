@@ -1,0 +1,244 @@
+$btnSize: 40px;
+$lgScreen: calc(1024px - 2rem);
+$xlScreen: calc(1280px - 2rem);
+$defaultGutter: 0.5rem;
+$mdGutter: 1rem;
+$lgGutter: 1.5rem;
+$xlGutter: 2rem;
+
+$animation-curve: cubic-bezier(0.55, 0, 0.1, 1);
+
+@mixin rail-column($int) {
+  $noOfGutters: $int - 1;
+
+  &--#{$int}-col & {
+    &__card {
+      @media (min-width: 1024px) {
+        width: calc((#{$lgScreen} - (#{$lgGutter} * #{$noOfGutters})) / #{$int});
+      }
+
+      @media (min-width: 1280px) {
+        width: calc((#{$xlScreen} - (#{$xlGutter} * #{$noOfGutters})) / #{$int});
+      }
+    }
+  }
+}
+
+.hide_btn {
+  visibility: hidden;
+}
+
+.btn {
+  display: inline-flex;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: initial;
+  border: 1px solid transparent;
+  padding: 11px 24px;
+  outline: none;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: text;
+  }
+
+  &-icon {
+    padding: 0px;
+  }
+
+  &-md {
+    padding: 11px 24px;
+  }
+}
+
+.content-rail {
+  position: relative;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    @media (min-width: 1024px) {
+      overflow-x: hidden;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: row;
+    will-change: transform;
+    transition: transform 600ms $animation-curve;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    pointer-events: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    width: $btnSize;
+    height: $btnSize;
+    transition: opacity 500ms $animation-curve;
+    z-index: 2;
+    pointer-events: auto;
+    margin-top: 5rem;
+    color: #fff;
+
+    &:disabled {
+      opacity: 0 !important;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:hover {
+      color: white;
+      box-shadow: none;
+      transition: all 500ms $animation-curve;
+    }
+
+    &--left {
+      left: -30px;
+    }
+
+    &--right {
+      right: -30px;
+    }
+  }
+
+  &:hover &__btn {
+    opacity: 1;
+    transition: opacity 200ms $animation-curve;
+
+    &:disabled {
+      opacity: 0;
+    }
+  }
+
+  &--btn-offset-20 & {
+    &__btn {
+      top: -20px;
+    }
+  }
+
+  &--btn-offset-50 & {
+    &__btn {
+      top: -50px;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    margin-right: $defaultGutter;
+
+    @media (min-width: 768px) {
+      margin-right: $mdGutter;
+    }
+
+    @media (min-width: 1024px) {
+      margin-right: $lgGutter;
+    }
+
+    @media (min-width: 1280px) {
+      margin-right: $xlGutter;
+    }
+
+    &:first-child {
+      padding-left: 1.5rem;
+
+      @media (min-width: 1024px) {
+        padding-left: 0px;
+      }
+    }
+
+    &:last-child {
+      padding-right: 1.5rem;
+
+      @media (min-width: 1024px) {
+        padding-right: 0px;
+      }
+    }
+  }
+
+  &__card {
+    display: block;
+    width: 220px;
+  }
+
+  &--md & {
+    &__wrapper {
+      @media (min-width: 1024px) {
+        overflow-x: scroll;
+      }
+      @media (min-width: 1280px) {
+        overflow-x: hidden;
+      }
+    }
+    &__actions {
+      @media (min-width: 1024px) {
+        display: none;
+      }
+      @media (min-width: 1280px) {
+        display: flex;
+      }
+    }
+    &__item {
+      margin-right: $defaultGutter;
+    }
+    &__card {
+      width: 244px !important;
+    }
+  }
+
+  &--testimonial & {
+    &__item {
+      margin: 2rem 1rem;
+    }
+
+    &__card {
+      width: 300px !important;
+      @media (min-width: 768px) {
+        width: 100% !important;
+      }
+    }
+  }
+
+  @include rail-column(2);
+  @include rail-column(3);
+  @include rail-column(4);
+  @include rail-column(5);
+}
