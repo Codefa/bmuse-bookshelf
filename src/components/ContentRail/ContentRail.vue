@@ -15,7 +15,6 @@
     <div class="content-rail__actions">
       <div
         @click="prev"
-        :disabled="!showPrev"
         aria-label="Previous"
         :class="{ hide_btn: !showPrev }"
         class="
@@ -25,10 +24,15 @@
           btn-icon btn-md
         "
       >
-        <IconChevronLeft width="40" height="40" />
+        <img
+          :src="require('@/assets/slider_arrow.png')"
+          style="-webkit-transform: scaleX(-1); transform: scaleX(-1)"
+          alt="slider_left_arrow"
+          width="60"
+          height="60"
+        />
       </div>
       <div
-        :disabled="!showNext"
         aria-label="Next"
         @click="next"
         :class="{ hide_btn: !showNext }"
@@ -39,7 +43,12 @@
           btn-icon btn-md
         "
       >
-        <IconChevronRight width="40" height="40" />
+        <img
+          :src="require('@/assets/slider_arrow.png')"
+          alt="slider_right_arrow"
+          width="60"
+          height="60"
+        />
       </div>
     </div>
   </div>
@@ -52,11 +61,6 @@ const SCREEN_LG = 1024;
 const SCREEN_RESIZE_REFRESH_RATE = 500;
 
 export default {
-  components: {
-    IconChevronRight: () => import("@/assets/svg/icon-chevron-right.svg"),
-    IconChevronLeft: () => import("@/assets/svg/icon-chevron-left.svg"),
-  },
-
   props: {
     items: {
       type: Array,

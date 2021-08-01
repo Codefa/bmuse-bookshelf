@@ -1,16 +1,19 @@
 <template>
-  <div style="background: #000; padding-top: 4rem; padding-left: 1rem">
+  <div class="container">
     <content-row>
       <h3 class="book-category">Hardcover Fiction</h3>
 
-      <content-rail
-        :items="books"
-        :per-page="4"
-        class="content-rail--btn-offset-50"
-      >
+      <content-rail :items="books" class="content-rail--btn-offset-50">
         <template #item="{ item, itemIndex }">
           <div @click="getSelectedBook(itemIndex)">
-            <BookCard :book="item" />
+            <BookCard
+              :book="item"
+              :style="
+                itemIndex === itemIndexx
+                  ? 'border: 5px solid #fff;'
+                  : 'border: 5px solid transparent;'
+              "
+            />
           </div>
         </template>
       </content-rail>
@@ -61,6 +64,7 @@ export default {
   data: () => ({
     books: [],
     bookDetails: {},
+    itemIndexx: "",
   }),
 
   created() {
@@ -75,11 +79,13 @@ export default {
   methods: {
     isEmpty,
     getSelectedBook(itemIndex) {
+      this.itemIndexx = itemIndex;
       this.bookDetails = this.books[itemIndex];
     },
 
     closeDetails() {
       this.bookDetails = {};
+      this.itemIndexx = "";
     },
   },
 };
@@ -181,17 +187,4 @@ export default {
     }
   }
 }
-
-.-mx-4 {
-  margin-left: -1rem;
-  margin-right: -1rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-$red-400: #f87171;
-$red-500: #ef4444;
 </style>

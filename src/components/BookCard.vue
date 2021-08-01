@@ -37,30 +37,31 @@ export default {
   min-width: 0;
   width: 250px;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  border: 5px solid transparent;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
   }
 
-  &:active,
-  &:focus {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-  }
+  // &:active,
+  // &:focus {
+  //   border: 5px solid #fff;
+  // }
 
   &__img {
     display: block;
     width: 100%;
-    height: 270px;
     border-radius: calc(0.25rem - 1px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    object-fit: cover;
   }
 
   &__img-overlay {
@@ -114,7 +115,7 @@ export default {
     padding: 0.4rem;
     background: #003366;
     color: #fff;
-    border-radius: 4px;
+    border-bottom-left-radius: 1rem;
     opacity: 0.9;
     font-size: 16px;
     font-weight: 400;

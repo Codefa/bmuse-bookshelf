@@ -1,33 +1,40 @@
 <template>
   <div id="app">
-    <header id="masthead">
-      <div class="masthead-inner">
-        <nav class="main-nav">
-          <div class="site-logo">
-            <img :src="require('@/assets/bmuse_logo.png')" alt="logo" />
+    <div class="main-background">
+      <nav class="main-nav">
+        <div class="site-logo">
+          <img :src="require('@/assets/bmuse_logo.png')" alt="logo" />
+        </div>
+        <ul class="top-nav">
+          <li class="top-nav-link">
+            <img class="search-icon" :src="require('@/assets/search.png')" />
+          </li>
+        </ul>
+      </nav>
+
+      <section class="section-showcase">
+        <div class="container">
+          <div>
+            <h1 class="headline">Bookshelf & Book Racks</h1>
+            <p class="subheadline">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              repudiandae rerum libero ipsum asperiores omnis mollitia, nostrum
+              commodi placeat ea itaque modi corrupti corporis nam voluptas aut
+              reprehenderit eaque culpa.
+            </p>
           </div>
-          <ul class="top-nav">
-            <li class="top-nav-link">
-              <img class="search-icon" :src="require('@/assets/search.png')" />
-            </li>
-          </ul>
-        </nav>
-        <article class="masthead-text">
-          <h2 class="masthead-text-headline">Bookshelf & Book Racks</h2>
-          <p class="masthead-text-subheadline">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry.
-          </p>
-        </article>
-      </div>
-    </header>
+        </div>
+      </section>
+    </div>
     <router-view />
   </div>
 </template>
 
 <style lang="scss">
+html {
+  background-color: #141517;
+}
+
 body {
   font-family: Helvetica Neue LT W05_45 Light;
   -webkit-font-smoothing: antialiased;
@@ -39,14 +46,31 @@ img {
   width: 100%;
 }
 
-#masthead {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(~@/assets/bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 100vh;
+.main-background {
+  background: url(~@/assets/bg.jpg) no-repeat top / cover;
+  height: 60vh;
+  max-height: 700px;
+  min-height: 300px;
+}
+
+.container {
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+/* showcase section */
+
+.section-showcase {
+  margin: 2rem 0;
+}
+
+.section-showcase .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-nav {
@@ -81,16 +105,9 @@ img {
   background: #333;
   padding: 12px;
   border-radius: 100%;
-  // box-shadow: 0 1px 6px rgb(0 0 0 / 10%), 0 2px 24px rgb(0 0 0 / 20%);
 }
 
-.masthead-text {
-  max-width: 30%;
-  padding: 0 1rem;
-  margin-top: 5rem;
-}
-
-.masthead-text-headline {
+.headline {
   font-size: 64px;
   font-weight: 100;
   font-stretch: normal;
@@ -99,10 +116,10 @@ img {
   letter-spacing: normal;
   color: #fff;
   padding-left: 50px;
-  margin: 0 0 16px;
+  margin: 0 60px 10px 0;
 }
 
-.masthead-text-subheadline {
+.subheadline {
   font-size: 16px;
   font-weight: 300;
   font-stretch: normal;
